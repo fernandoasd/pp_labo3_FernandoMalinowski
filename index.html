@@ -13,38 +13,38 @@
         <label for="selFiltrarPor">Filtrar por: </label>
         <select id="selectFiltro" name="filtrarPor">
             <option value="todos">todos</option>
-            <option value="clientes">clientes</option>
-            <option value="empleados">empleados</option>
+            <option value="terrestre">Terrestre</option>
+            <option value="aereo">Aereo</option>
         </select><br>
 
-        <label for="txtPromedio">Calcular Edad Promedio: </label>
+        <label for="txtPromedio">Calcular velocidad máxima: </label>
             <input id="txtPromedio" type="text">
-            <button id="btnEdadPromedio">Calcular</button><br>
+            <button id="btnVelocidadPromedio">Calcular</button><br>
 
         <div id="contenedorCheckboxes" name="contC">
             <input type="checkbox" id="checkId">
             <label for="checkId">ID</label>
 
-            <input type="checkbox" id="checkNombre">
-            <label for="checkNombre">Nombre</label>
+            <input type="checkbox" id="checkModelo">
+            <label for="checkModelo">Modelo</label>
 
-            <input type="checkbox" id="checkApellido">
-            <label for="checkApellido">Apellido</label>
+            <input type="checkbox" id="checkAnoFab">
+            <label for="checkAnoFab">Año Fab</label>
 
-            <input type="checkbox" id="checkEdad">
-            <label for="checkEdad">Edad</label>
+            <input type="checkbox" id="checkVelMax">
+            <label for="checkVelMax">VelMax</label>
 
-            <input type="checkbox" id="checkVentas">
-            <label for="checkVentas">Ventas</label>
+            <input type="checkbox" id="checkAltMax">
+            <label for="checkAltMax">AltMax</label>
 
-            <input type="checkbox" id="checkSueldo">
-            <label for="checkSueldo">Sueldo</label>
+            <input type="checkbox" id="checkAutonomida">
+            <label for="checkAutonomida">Autonomida</label>
 
-            <input type="checkbox" id="checkCompras">
-            <label for="checkCompras">Compras</label>
+            <input type="checkbox" id="checkCantPue">
+            <label for="checkCantPue">CantPue</label>
 
-            <input type="checkbox" id="checkTelefono">
-            <label for="checkTelefono">Telefono</label>
+            <input type="checkbox" id="checkCantRue">
+            <label for="checkCantRue">CantRue</label>
         </div>
         
 
@@ -66,25 +66,25 @@
         <table id="id_tabla_datos">
             <thead id="tableHead">
                     <th id="colId">ID</th>
-                    <th id="colNombre">Nombre</th>
-                    <th id="colApellido">Apellido</th>
-                    <th id="colEdad">Edad</th>
-                    <th id="colSueldo">Sueldo</th>
-                    <th id="colVentas">Ventas</th>
-                    <th id="colCompras">Compras</th>
-                    <th id="colTel">Telefono</th>
+                    <th id="colModelo">Modelo</th>
+                    <th id="colAnoFab">AnoFab</th>
+                    <th id="colVelMax">VelMax</th>
+                    <th id="colAltMax">AltMax</th>
+                    <th id="colAutonomia">Autonomia</th>
+                    <th id="colCantPue">CantPue</th>
+                    <th id="coCantRue">CantRue</th>
             </thead>
 
             <tbody id="tableBody">
                 <!-- <tr>
                     <td class="colId">--</td>
-                    <td class="colNombre">--</td>
-                    <td class="colApellido">--</td>
-                    <td class="colEdad" >--</td>
-                    <td class="colVentas">--</td>
-                    <td class="colSueldo">--</td>
-                    <td class="colCompras">--</td>
-                    <td class="colTel">--</td>
+                    <td class="colModelo">--</td>
+                    <td class="colAnoFab">--</td>
+                    <td class="colVelMax" >--</td>
+                    <td class="colAutonomia">--</td>
+                    <td class="colAltMax">--</td>
+                    <td class="colCantPue">--</td>
+                    <td class="coCantRue">--</td>
                 </tr> -->
             </tbody>
             
@@ -99,33 +99,33 @@
 
         <label for="">Tipo: </label>
         <select name="selectTipo" id="selectTipo">
-            <option value="1">Empleado</option>
-            <option value="2">Cliente</option>
+            <option value="1">Aereo</option>
+            <option value="2">Terrestre</option>
         </select><br>
 
         <label for="txtID">Id: </label>
         <input type="text" id="txtId"><br>
 
-        <label for="txtNombre">Nombre: </label>
-        <input type="text" id="txtNombre"><br>
+        <label for="txtModelo">Modelo: </label>
+        <input type="text" id="txtModelo"><br>
 
-        <label for="txtApellido">Apellido: </label>
-        <input type="text" id="txtApellido"><br>
+        <label for="txtAnoFab">AnoFab: </label>
+        <input type="text" id="txtAnoFab"><br>
 
-        <label for="txtEdad">Edad: </label>
-        <input type="text" id="txtEdad"><br>
+        <label for="txtVelMax">VelMax: </label>
+        <input type="text" id="txtVelMax"><br>
 
-        <label for="txtSueldo" class="propEmpleado">Sueldo: </label>
-        <input type="text" id="txtSueldo" class="propEmpleado"><br class="propEmpleado">
+        <label for="txtAltMax" class="propAereo">AltMax: </label>
+        <input type="text" id="txtAltMax" class="propAereo"><br class="propAereo">
 
-        <label for="txtVentas" class="propEmpleado">Ventas: </label>
-        <input type="text" id="txtVentas" class="propEmpleado"><br class="propEmpleado">
+        <label for="txtAutonomia" class="propAereo">Autonomia: </label>
+        <input type="text" id="txtAutonomia" class="propAereo"><br class="propAereo">
 
-        <label for="txtCompras" class="propCliente">Compras: </label>
-        <input type="text" id="txtCompras" class="propCliente"><br class="propCliente">
+        <label for="txtCantPue" class="propTerrestre">CantPue: </label>
+        <input type="text" id="txtCantPue" class="propTerrestre"><br class="propTerrestre">
 
-        <label for="txtTel" class="propCliente">Telefono: </label>
-        <input type="text" id="txtTel" class="propCliente"><br class="propCliente">
+        <label for="txtCantRue" class="propTerrestre">CantRue: </label>
+        <input type="text" id="txtCantRue" class="propTerrestre"><br class="propAereo">
 
         <div id="containerBtn">
             <button id="btnAceptar">Aceptar</button>

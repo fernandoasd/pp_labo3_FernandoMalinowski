@@ -1,0 +1,21 @@
+body
+{
+    background-color: bisque;
+}
+
+table, td, form
+{
+    border: 2px, solid;
+}
+
+/* table
+{
+    width: 50vw;
+    margin: auto;
+}
+
+.center
+{
+    width: 55vw;
+    margin: auto;
+} */
