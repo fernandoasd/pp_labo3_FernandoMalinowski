@@ -374,6 +374,8 @@ function dibujarAbm(p)
         btnEliminar.style.display = "inline-block";
         btnAceptar.style.display = "none";
         txtId.value = p.id;
+        selectTipo.disabled = true;
+        txtId.disabled = true;
         txtModelo.value = p.modelo;
         txtAnoFab.value = p.anoFab;
         txtVelMax.value = p.velMax;
@@ -398,10 +400,12 @@ function dibujarAbm(p)
     }
     else
     {
+        selectTipo.disabled = false;
+        txtId.value = generarIdUnica();
+        txtId.disabled = true;
         btnAceptar.style.display = "inline-block";
         btnModificar.style.display = "none";
         btnEliminar.style.display = "none";
-        txtId.value = "";
         txtModelo.value = "";
         txtAnoFab.value = "";
         txtVelMax.value = "";
@@ -414,6 +418,18 @@ function dibujarAbm(p)
     aplicarEstilos();
 }
 
+function generarIdUnica()
+{
+    let nuevaId = 1;
+    for (i= 0; i<vehiculos.length; i++)
+    {
+        if (vehiculos[i].id ==nuevaId)
+        {
+            nuevaId++;
+        }
+    }
+    return nuevaId;
+}
 
 function actualizarFiltroAbm()
 {
@@ -533,13 +549,13 @@ function validarVehiculo()
     let banderaOk = false;
     let nuevoVehiculo;
 
-    if(txtId.value != "" && txtModelo.value != "" && txtAnoFab.value != "" && txtVelMax.value >= 15)
+    if(txtId.value > 0 && txtModelo.value != "" && txtAnoFab.value > 1885 && txtVelMax.value >= 0)
     {
         if (selectTipo.value == 1)
             {
                 if (txtAltMax.value > 0 && txtAutonomia.value > 0)
                 {
-                    nuevoVehiculo = new Terrestre(txtId.value, txtModelo.value, txtAnoFab.value, txtVelMax.value, txtAltMax.value, txtAutonomia.value); 
+                    nuevoVehiculo = new Aereo(txtId.value, txtModelo.value, txtAnoFab.value, txtVelMax.value, txtAltMax.value, txtAutonomia.value); 
                     banderaOk = true;
                 }
                 else
@@ -549,9 +565,9 @@ function validarVehiculo()
             }
         else if (selectTipo.value == 2)
         {
-            if ( txtCantPue.value > 0 && txtCantPue.value != "" && txtCantRue.value != "")
+            if ( txtCantPue.value > -1 && txtCantPue.value != "" && txtCantRue.value > 0)
             {
-                nuevoVehiculo = new Aereo(txtId.value, txtModelo.value, txtAnoFab.value, txtVelMax.value, txtCantPue.value, txtCantRue.value); 
+                nuevoVehiculo = new Terrestre(txtId.value, txtModelo.value, txtAnoFab.value, txtVelMax.value, txtCantPue.value, txtCantRue.value); 
                 banderaOk = true;
             }
             else
