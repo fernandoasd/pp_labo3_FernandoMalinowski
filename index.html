@@ -8,132 +8,115 @@
     
 </head>
 <body id="idBody">
-    <form name="formDatos" id="formDatos" class="center">
-        <label>Form Datos</label><br>
-        <label for="selFiltrarPor">Filtrar por: </label>
-        <select id="selectFiltro" name="filtrarPor">
-            <option value="todos">todos</option>
-            <option value="terrestre">Terrestre</option>
-            <option value="aereo">Aereo</option>
-        </select><br>
+    <div class="center">
+        <form name="formDatos" id="formDatos" class="center">
+            <h1>Form Datos</h1><br>
+            <label for="selFiltrarPor">Filtrar por: </label>
+            <select id="selectFiltro" name="filtrarPor">
+                <option value="todos">todos</option>
+                <option value="terrestre">Terrestre</option>
+                <option value="aereo">Aereo</option>
+            </select><br>
+    
+            <label for="txtPromedio">Calcular velocidad máxima: </label>
+                <input id="txtPromedio" type="text">
+                <button id="btnVelocidadPromedio">Calcular</button><br>
+    
+            <div id="contenedorCheckboxes" name="contC">
+                <input type="checkbox" id="checkId">
+                <label for="checkId">ID</label>
+    
+                <input type="checkbox" id="checkModelo">
+                <label for="checkModelo">Modelo</label>
+    
+                <input type="checkbox" id="checkAnoFab">
+                <label for="checkAnoFab">Año Fab</label>
+    
+                <input type="checkbox" id="checkVelMax">
+                <label for="checkVelMax">VelMax</label>
+    
+                <input type="checkbox" id="checkAltMax">
+                <label for="checkAltMax">AltMax</label>
+    
+                <input type="checkbox" id="checkAutonomida">
+                <label for="checkAutonomida">Autonomida</label>
+    
+                <input type="checkbox" id="checkCantPue">
+                <label for="checkCantPue">CantPue</label>
+    
+                <input type="checkbox" id="checkCantRue">
+                <label for="checkCantRue">CantRue</label>
+            </div>
+    
+            <br>
+    
+    
+            <table id="id_tabla_datos">
+                <thead id="tableHead">
+                        <th id="colId">ID</th>
+                        <th id="colModelo">Modelo</th>
+                        <th id="colAnoFab">AnoFab</th>
+                        <th id="colVelMax">VelMax</th>
+                        <th id="colAltMax">AltMax</th>
+                        <th id="colAutonomia">Autonomia</th>
+                        <th id="colCantPue">CantPue</th>
+                        <th id="colCantRue">CantRue</th>
+                </thead>
+    
+                <tbody id="tableBody">
+                    <!-- -------------------Filas Tabla---------------------------------- -->
+                </tbody>
+                
+            </table>
+    
+            <br>
+            <button id="btnAgregar">Agregar</button>
+        </form>
+    </div>
 
-        <label for="txtPromedio">Calcular velocidad máxima: </label>
-            <input id="txtPromedio" type="text">
-            <button id="btnVelocidadPromedio">Calcular</button><br>
+    <div class="center">
+        <form name="formAgregar" id="formAbm" class="">
+            <h1>Formulario ABM</h1>
+    
+            <label for="">Tipo: </label>
+            <select name="selectTipo" id="selectTipo">
+                <option value="1">Aereo</option>
+                <option value="2">Terrestre</option>
+            </select><br>
+    
+            <label for="txtID">Id: </label>
+            <input type="text" id="txtId"><br>
+    
+            <label for="txtModelo">Modelo: </label>
+            <input type="text" id="txtModelo"><br>
+    
+            <label for="txtAnoFab">AnoFab: </label>
+            <input type="text" id="txtAnoFab"><br>
+    
+            <label for="txtVelMax">VelMax: </label>
+            <input type="text" id="txtVelMax"><br>
+    
+            <label for="txtAltMax" class="propAereo">AltMax: </label>
+            <input type="text" id="txtAltMax" class="propAereo"><br class="propAereo">
+    
+            <label for="txtAutonomia" class="propAereo">Autonomia: </label>
+            <input type="text" id="txtAutonomia" class="propAereo"><br class="propAereo">
+    
+            <label for="txtCantPue" class="propTerrestre">CantPue: </label>
+            <input type="text" id="txtCantPue" class="propTerrestre"><br class="propTerrestre">
+    
+            <label for="txtCantRue" class="propTerrestre">CantRue: </label>
+            <input type="text" id="txtCantRue" class="propTerrestre"><br class="propAereo">
+    
+            <div id="containerBtn">
+                <button id="btnAceptar">Aceptar</button>
+                <button id="btnCancelar">Cancelar</button>
+                <button id="btnModificar">Modificar</button>
+                <button id="btnEliminar">Eliminar</button>
+            </div>
+        </form>
+    </div>
 
-        <div id="contenedorCheckboxes" name="contC">
-            <input type="checkbox" id="checkId">
-            <label for="checkId">ID</label>
-
-            <input type="checkbox" id="checkModelo">
-            <label for="checkModelo">Modelo</label>
-
-            <input type="checkbox" id="checkAnoFab">
-            <label for="checkAnoFab">Año Fab</label>
-
-            <input type="checkbox" id="checkVelMax">
-            <label for="checkVelMax">VelMax</label>
-
-            <input type="checkbox" id="checkAltMax">
-            <label for="checkAltMax">AltMax</label>
-
-            <input type="checkbox" id="checkAutonomida">
-            <label for="checkAutonomida">Autonomida</label>
-
-            <input type="checkbox" id="checkCantPue">
-            <label for="checkCantPue">CantPue</label>
-
-            <input type="checkbox" id="checkCantRue">
-            <label for="checkCantRue">CantRue</label>
-        </div>
-        
-
-
-        <!-- <input type="checkbox" id="checkCantGoles">
-        <label for="checkCantGoles">CantGoles</label>
-
-        <input type="checkbox" id="checkTitulo">
-        <label for="checkTitulo">Titulo</label>
-
-        <input type="checkbox" id="checkFacultad">
-        <label for="checkFacultad">Facultad</label>
-
-        <input type="checkbox" id="checkAñoGrad">
-        <label for="checkAñoGrad">AñoGrad</label> -->
-
-        <br>
-
-        <table id="id_tabla_datos">
-            <thead id="tableHead">
-                    <th id="colId">ID</th>
-                    <th id="colModelo">Modelo</th>
-                    <th id="colAnoFab">AnoFab</th>
-                    <th id="colVelMax">VelMax</th>
-                    <th id="colAltMax">AltMax</th>
-                    <th id="colAutonomia">Autonomia</th>
-                    <th id="colCantPue">CantPue</th>
-                    <th id="coCantRue">CantRue</th>
-            </thead>
-
-            <tbody id="tableBody">
-                <!-- <tr>
-                    <td class="colId">--</td>
-                    <td class="colModelo">--</td>
-                    <td class="colAnoFab">--</td>
-                    <td class="colVelMax" >--</td>
-                    <td class="colAutonomia">--</td>
-                    <td class="colAltMax">--</td>
-                    <td class="colCantPue">--</td>
-                    <td class="coCantRue">--</td>
-                </tr> -->
-            </tbody>
-            
-        </table>
-
-        <br>
-        <button id="btnAgregar">Agregar</button>
-    </form>
-
-    <form name="formAgregar" id="formAbm" class="">
-        <h1>Formulario ABM</h1>
-
-        <label for="">Tipo: </label>
-        <select name="selectTipo" id="selectTipo">
-            <option value="1">Aereo</option>
-            <option value="2">Terrestre</option>
-        </select><br>
-
-        <label for="txtID">Id: </label>
-        <input type="text" id="txtId"><br>
-
-        <label for="txtModelo">Modelo: </label>
-        <input type="text" id="txtModelo"><br>
-
-        <label for="txtAnoFab">AnoFab: </label>
-        <input type="text" id="txtAnoFab"><br>
-
-        <label for="txtVelMax">VelMax: </label>
-        <input type="text" id="txtVelMax"><br>
-
-        <label for="txtAltMax" class="propAereo">AltMax: </label>
-        <input type="text" id="txtAltMax" class="propAereo"><br class="propAereo">
-
-        <label for="txtAutonomia" class="propAereo">Autonomia: </label>
-        <input type="text" id="txtAutonomia" class="propAereo"><br class="propAereo">
-
-        <label for="txtCantPue" class="propTerrestre">CantPue: </label>
-        <input type="text" id="txtCantPue" class="propTerrestre"><br class="propTerrestre">
-
-        <label for="txtCantRue" class="propTerrestre">CantRue: </label>
-        <input type="text" id="txtCantRue" class="propTerrestre"><br class="propAereo">
-
-        <div id="containerBtn">
-            <button id="btnAceptar">Aceptar</button>
-            <button id="btnCancelar">Cancelar</button>
-            <button id="btnModificar">Modificar</button>
-            <button id="btnEliminar">Eliminar</button>
-        </div>
-    </form>
     
 </body>
 

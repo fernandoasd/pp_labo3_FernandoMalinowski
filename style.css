@@ -5,17 +5,27 @@ body
 
 table, td, form
 {
-    border: 2px, solid;
+    border: 2px solid blue;
 }
 
-/* table
+form
 {
-    width: 50vw;
-    margin: auto;
+    padding: 10px;
+}
+
+table, #formAbm
+{
+    text-align: center;
+}
+
+h1
+{
+    text-align: center;
 }
 
 .center
 {
-    width: 55vw;
+    width: 50vw;
     margin: auto;
-} */
+    /* padding: 1vw; */
+}

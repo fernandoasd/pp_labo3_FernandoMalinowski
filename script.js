@@ -84,8 +84,6 @@ let txtAutonomia = document.getElementById("txtAutonomia");
 let txtCantPue = document.getElementById("txtCantPue");
 let txtCantRue = document.getElementById("txtCantRue");
 
-console.log("coches::");
-console.log(arrayObjetos);
 
 idBody.onload = ()=>{formAbm.style.display = "none"};
 
@@ -101,30 +99,14 @@ var vehiculos = arrayObjetos.map((e) =>
         }
     });
 
-console.log("coches::");
-console.log(vehiculos);
 
 var vehiculosFiltrados = [];
 actualizarListaFiltrada();
-
-// console.log(p1.toString());
-// console.log(p1.toJson());
-
-// console.log(e1.toString());
-// console.log(e1.toJson());
-
-
-// console.log(arrayObjetos);
-
-
-
 
 
 function actualizarListaFiltrada()
 {
     vehiculosFiltrados = filtrarVehiculos(vehiculos);
-    console.log("vehiculosFiltrados:");
-    console.log(vehiculosFiltrados);
 }
 
 selectFilter.addEventListener("change", () =>
@@ -199,7 +181,7 @@ function dibujarTabla()
     let encabezadoVent = document.getElementById("colAutonomia");
     let encabezadoSueld = document.getElementById("colAltMax");
     let encabezadoComp = document.getElementById("colCantPue");
-    let encabezadoTel = document.getElementById("coCantRue");
+    let encabezadoTel = document.getElementById("colCantRue");
 
     let tableBody = document.getElementById("tableBody");
 
@@ -354,7 +336,6 @@ function dibujarTabla()
             var filaClickeada = (e.target).parentElement;
             var idClick = filaClickeada.getAttribute("idElemento");
             var personaSeleccionada = vehiculosFiltrados.find((x)=>{return x.id == idClick});
-            console.log(personaSeleccionada);
             dibujarAbm(personaSeleccionada);
             switchForms();
         });
@@ -390,7 +371,6 @@ function dibujarAbm(p)
         }
         else if (p instanceof Terrestre)
         {
-            console.log("instancia Terrestre!");
             selectTipo.value = 2;
             txtCantPue.value = p.cantPue;
             txtCantRue.value = p.cantRue;
@@ -436,7 +416,6 @@ function actualizarFiltroAbm()
     let propOcultas = [];
     let propCargadas = [];
     
-    console.log(selectTipo.value);
     if (selectTipo.value == 2)
     {
         propCargadas = document.getElementsByClassName("propTerrestre");
@@ -493,7 +472,6 @@ btnCancelar.addEventListener("click", ()=>
 btnModificar.addEventListener("click", () =>
     {
         let personaModificar = vehiculosFiltrados.find((p)=>{return p.id == txtId.value});
-        console.log(personaModificar);
 
         personaModificar.modelo = txtModelo.value.toString();
         personaModificar.AnoFab = txtAnoFab.value.toString();
@@ -510,8 +488,6 @@ btnModificar.addEventListener("click", () =>
             personaModificar.AltMax = txtAltMax.value.toString();
             personaModificar.Autonomia = txtAutonomia.value.toString();
         }
-        console.log("personas filtradas:");
-        console.log(vehiculosFiltrados);
         switchForms();
     });
 
@@ -522,14 +498,9 @@ btnEliminar.addEventListener("click", () =>
         if (vehiculos[i].id == txtId.value)
         {
             vehiculos.splice(i, 1)
-            // console.log("eLIMINADO:");
-            // console.log(vehiculos.splice(i, 1));
             break;
         }
     }
-
-    // console.log("vehiculos filtradas:");
-    console.log("dibujamos tabla");
     switchForms();
 });
 
@@ -540,8 +511,8 @@ btnAceptar.addEventListener("click", () =>
     if (nuevoVehiculo != -1)
     {
         vehiculos.push(nuevoVehiculo);
+        switchForms();
     }
-    switchForms();
 });
 
 function validarVehiculo()
@@ -588,7 +559,6 @@ function validarVehiculo()
     }
     else
     {
-        console.log("no se genero persona");
         return -1;
     }
 }
@@ -638,18 +608,11 @@ function aplicarEstilos()
 tableHead.addEventListener("dblclick", (e)=>
 {
     var columnaClicleada = e.target;
-    var idClick = columnaClicleada.firstChild;
-    idClick.
-    console.log("------------");
-    console.log(idClick);
-    console.log(idClick == "ID");
-
-    console.log("####");
-    console.log(vehiculosFiltrados);
+    var idClick = columnaClicleada.getAttribute("id");
 
     switch (idClick)
     {
-        case ("ID"):
+        case ("colId"):
             
             vehiculosFiltrados.sort((a,b)=>
                 {
@@ -661,7 +624,7 @@ tableHead.addEventListener("dblclick", (e)=>
                         return 0;
                 });
                 break;
-        case ("modelo"):
+        case ("colModelo"):
             vehiculosFiltrados.sort((a,b)=>
                 {
                     if (a.modelo > b.modelo)
@@ -672,68 +635,113 @@ tableHead.addEventListener("dblclick", (e)=>
                         return 0;
                 });
                 break;
-        case ("AnoFab"):
+        case ("colAnoFab"):
             vehiculosFiltrados.sort((a,b)=>
                 {
-                    if (a.AnoFab > b.AnoFab)
+                    if (a.anoFab > b.anoFab)
                         return -1;
-                    else if(b.AnoFab > a.AnoFab )
+                    else if(b.anoFab > a.anoFab )
                         return 1;
                     else
                         return 0;
                 });
                 break;
-        case ("VelMax"):
+        case ("colVelMax"):
             vehiculosFiltrados.sort((a,b)=>
                 {
-                    if (a.VelMax > b.VelMax)
+                    if (a.velMax > b.velMax)
                         return -1;
-                    else if(b.VelMax > a.VelMax )
+                    else if(b.velMax > a.velMax )
                         return 1;
                     else
                         return 0;
                 });
                 break;
-        case ("AltMax"):
+        case ("colAltMax"):
             vehiculosFiltrados.sort((a,b)=>
                 {
-                    if (a.AltMax > b.AltMax)
+                    let valorA;
+                    let valorB;
+                    if(a instanceof Terrestre)
+                        valorA = -100;
+                    else
+                        valorA = a.altMax;
+                    if(b instanceof Terrestre)
+                        valorB = -100;
+                    else
+                    valorB = b.altMax;
+                    
+
+                    if (valorA > valorB)
                         return -1;
-                    else if(b.AltMax > a.AltMax )
+                    else if(valorB > valorA )
                         return 1;
                     else
                         return 0;
                 });
                 break;
-        case ("Autonomia"):
+        case ("colAutonomia"):
             vehiculosFiltrados.sort((a,b)=>
             {
-                if (a.Autonomia > b.Autonomia)
+                let valorA;
+                let valorB;
+                if(a instanceof Terrestre)
+                    valorA = -100;
+                else
+                    valorA = a.autonomia;
+                if(b instanceof Terrestre)
+                    valorB = -100;
+                else
+                valorB = b.autonomia;
+                
+                if (valorA > valorB)
                     return -1;
-                else if(b.Autonomia > a.Autonomia )
+                else if(valorB > valorA )
                     return 1;
                 else
                     return 0;
             });
             break;
 
-        case ("CantPue"):
+        case ("colCantPue"):
             vehiculosFiltrados.sort((a,b)=>
             {
-                if (a.CantPue > b.CantPue)
+                let valorA;
+                let valorB;
+                if(a instanceof Aereo)
+                    valorA = -100;
+                else
+                    valorA = a.cantPue;
+                if(b instanceof Aereo)
+                    valorB = -100;
+                else
+                valorB = b.cantPue;
+                
+                if (valorA > valorB)
                     return -1;
-                else if(b.CantPue > a.CantPue )
+                else if(valorB > valorA )
                     return 1;
                 else
                     return 0;
             });
             break;
-        case ("cantRue"):
+        case ("colCantRue"):
             vehiculosFiltrados.sort((a,b)=>
             {
-                if (a.cantRue > b.cantRue)
+                let valorA;
+                let valorB;
+                if(a instanceof Aereo)
+                    valorA = -100;
+                else
+                    valorA = a.cantRue;
+                if(b instanceof Aereo)
+                    valorB = -100;
+                else
+                valorB = b.cantRue;
+                
+                if (valorA > valorB)
                     return -1;
-                else if(b.cantRue > a.cantRue )
+                else if(valorB > valorA )
                     return 1;
                 else
                     return 0;
